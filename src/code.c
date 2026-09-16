@@ -54,15 +54,10 @@ int   sum_chain(Node *headPtr);
 
 void swap(int *aPtr, int *bPtr)
 {
-    int a = 5 , b = 3;
-    int resA = b, resB = a;
-    swap(&a, &b);
-    TEST_ASSERT_EQUAL(3, a);
-    TEST_ASSERT_EQUAL(5, b);
-    // TODO
+    int temp = *aPtr;
+    *aPtr = *bPtr;
+    *bPtr = temp;
 }
-
-
 // ============================================================
 // find_last_char
 //
@@ -71,7 +66,7 @@ void swap(int *aPtr, int *bPtr)
 // Return NULL if the string is empty (*sPtr == '\0').
 //
 // Example:
-//   char str[] = "hello";
+//   char str[] = "hello"; 
 //   char *resultPtr = find_last_char(str);
 //   // *resultPtr == 'o'
 //   // resultPtr  == str + 4
