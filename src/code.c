@@ -1,4 +1,4 @@
-//char * AUTHOR_NAME = (char *) "Jakub Pach";
+//char * AUTHOR_NAME = (char *) "Amelia Fladager";
 //char * AUTHOR_AUTHORSHIP = (char *) "I acknowledge that I have worked on this assignment independently, except where explicitly noted and referenced. Any collaboration or use of external resources has been properly cited. I am fully aware of the consequences of academic dishonesty and agree to abide by the university's academic integrity policy. I understand the seriousness and implications of plagiarism.";
 
 #include <stddef.h>
@@ -54,6 +54,11 @@ int   sum_chain(Node *headPtr);
 
 void swap(int *aPtr, int *bPtr)
 {
+    int a = 5 , b = 3;
+    int resA = b, resB = a;
+    swap(&a, &b);
+    TEST_ASSERT_EQUAL(3, a);
+    TEST_ASSERT_EQUAL(5, b);
     // TODO
 }
 
