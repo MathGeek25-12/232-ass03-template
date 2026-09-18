@@ -80,7 +80,10 @@ void test_swap_equal(void)
 
 void test_find_last_basic(void)
 {
-    // TODO
+    char str[] = "hello"; 
+    char *resultPtr = find_last_char(str);
+    TEST_ASSERT_EQUAL('o', *resultPtr);
+    TEST_ASSERT_EQUAL(str + 4, resultPtr);
 }
 
 

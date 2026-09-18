@@ -78,8 +78,12 @@ void swap(int *aPtr, int *bPtr)
 
 char* find_last_char(char *sPtr)
 {
-    // TODO
-    return NULL;
+    char *resultPtr = sPtr;
+    while (*resultPtr != '\0') 
+    {
+        resultPtr++;
+    }
+    return resultPtr - 1; // Return pointer to last character before '\0'
 }
 
 
