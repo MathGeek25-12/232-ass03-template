@@ -1,5 +1,6 @@
 //char * AUTHOR_NAME = (char *) "Amelia Fladager";
 //char * AUTHOR_AUTHORSHIP = (char *) "I acknowledge that I have worked on this assignment independently, except where explicitly noted and referenced. Any collaboration or use of external resources has been properly cited. I am fully aware of the consequences of academic dishonesty and agree to abide by the university's academic integrity policy. I understand the seriousness and implications of plagiarism.";
+//I used W3 schools to explain pointer arithmetic operators and arrow operators, and how to use them.
 
 #include <stddef.h>
 #include <stdio.h>
@@ -83,7 +84,10 @@ char* find_last_char(char *sPtr)
     {
         resultPtr++;
     }
-    return resultPtr - 1; // Return pointer to last character before '\0'
+    if (resultPtr == sPtr) {
+        return NULL; 
+    }
+    return resultPtr - 1; 
 }
 
 
@@ -101,7 +105,10 @@ char* find_last_char(char *sPtr)
 
 void link_three(Node *aPtr, Node *bPtr, Node *cPtr)
 {
-    // TODO
+    Node a, b, c;
+    aPtr -> nextPtr = bPtr;
+    bPtr -> nextPtr = cPtr;
+    cPtr -> nextPtr = NULL;
 }
 
 
@@ -118,7 +125,10 @@ void link_three(Node *aPtr, Node *bPtr, Node *cPtr)
 
 void remove_middle(Node *aPtr, Node *bPtr, Node *cPtr)
 {
-    // TODO
+    Node a, b, c;
+    aPtr -> nextPtr = cPtr;
+    bPtr -> nextPtr = NULL;
+    cPtr -> nextPtr = NULL;
 }
 
 
@@ -135,7 +145,8 @@ void remove_middle(Node *aPtr, Node *bPtr, Node *cPtr)
 
 void remove_last(Node *bPtr)
 {
-    // TODO
+    Node a, b, c;
+    bPtr -> nextPtr = NULL;
 }
 
 
@@ -151,7 +162,8 @@ void remove_last(Node *bPtr)
 
 void remove_first(Node *aPtr)
 {
-    // TODO
+    Node a, b, c;
+    aPtr -> nextPtr = NULL;
 }
 
 
@@ -176,7 +188,12 @@ void remove_first(Node *aPtr)
 
 void swap_ptrs(int **aPtrPtr, int **bPtrPtr)
 {
-    // TODO
+    Node p, q;
+    int x = 10, y = 20;
+    int *pPtr = &x, *qPtr = &y;
+    swap_ptrs(&pPtr, &qPtr); 
+    pPtr -> nextPtr = qPtr;
+    qPtr -> nextPtr = pPtr;
 }
 
 
@@ -201,7 +218,12 @@ void swap_ptrs(int **aPtrPtr, int **bPtrPtr)
 
 void nullify(int **ppPtr)
 {
-    // TODO
+    int x = 5;
+    int *pPtr = &x;
+    nullify(&pPtr);
+    pPtr == NULL;
+    int x == 5  (unchanged);
+    *ppPtr = NULL;
 }
 
 
