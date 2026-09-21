@@ -188,12 +188,9 @@ void remove_first(Node *aPtr)
 
 void swap_ptrs(int **aPtrPtr, int **bPtrPtr)
 {
-    Node p, q;
-    int x = 10, y = 20;
-    int *pPtr = &x, *qPtr = &y;
-    swap_ptrs(&pPtr, &qPtr); 
-    pPtr -> nextPtr = qPtr;
-    qPtr -> nextPtr = pPtr;
+    int *temp = *aPtrPtr;
+    *aPtrPtr = *bPtrPtr;
+    *bPtrPtr = temp;
 }
 
 
@@ -220,10 +217,9 @@ void nullify(int **ppPtr)
 {
     int x = 5;
     int *pPtr = &x;
-    nullify(&pPtr);
-    pPtr == NULL;
-    int x == 5  (unchanged);
-    *ppPtr = NULL;
+    pPtr = NULL;
+    x = 5;
+    *ppPtr = NULL; 
 }
 
 
@@ -250,7 +246,16 @@ void nullify(int **ppPtr)
 
 void assign_bytes(long long *nPtr)
 {
-    // TODO
+    long long n = 0;
+    unsigned char *bytePtr = (unsigned char *)nPtr;
+    *bytePtr = (unsigned char)1;
+    *(bytePtr + 1) = (unsigned char)2;
+    *(bytePtr + 2) = (unsigned char)3;
+    *(bytePtr + 3) = (unsigned char)4;
+    *(bytePtr + 4) = (unsigned char)5;
+    *(bytePtr + 5) = (unsigned char)6;
+    *(bytePtr + 6) = (unsigned char)7;
+    *(bytePtr + 7) = (unsigned char)8;
 }
 
 
@@ -272,6 +277,12 @@ void assign_bytes(long long *nPtr)
 
 int sum_chain(Node *headPtr)
 {
-    // TODO
-    return 0;
+    Node *currentPtr = headPtr;
+    int sum = 0;
+    while (currentPtr != NULL)
+    {
+        sum += currentPtr->value;
+        currentPtr = currentPtr->nextPtr;
+    }
+    return sum;
 }
